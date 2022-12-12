@@ -9,49 +9,64 @@ export default function RegisterForm({
   return (
     <div>
       <form onSubmit={handleOnRegister}>
-        <label>First Name:</label>
-        <input
-          required
-          type="text"
-          value={newUser.first_name}
-          onChange={({ target }) => setNewUser({ ...newUser, first_name: target.value })}
-        />
+        <div class="form-group">
+          <label>First Name:</label>
+          <input
+            class="form-control"
+            required
+            type="text"
+            value={newUser.first_name}
+            onChange={({ target }) => setNewUser({ ...newUser, first_name: target.value })}
+          />
+        </div>
         <br />
-        <label>Last Name:</label>
-        <input
-          required
-          type="text"
-          value={newUser.last_name}
-          onChange={({ target }) => setNewUser({ ...newUser, last_name: target.value })}
-        />
+        <div class="form-group">
+          <label>Last Name:</label>
+          <input
+            class="form-control"
+            required
+            type="text"
+            value={newUser.last_name}
+            onChange={({ target }) => setNewUser({ ...newUser, last_name: target.value })}
+          />
+        </div>
         <br />
-        <label>Email:</label>
-        <input
-          required
-          type="email"
-          value={newUser.email}
-          onChange={({ target }) => setNewUser({ ...newUser, email: target.value })}
-        />
+        <div class="form-group">
+          <label>Email:</label>
+          <input
+            class="form-control"
+            required
+            type="email"
+            value={newUser.email}
+            onChange={({ target }) => setNewUser({ ...newUser, email: target.value })}
+          />
+        </div>
         <br />
-        <label>Password:</label>
-        <input
-          required
-          type="password"
-          value={newUser.password}
-          onChange={({ target }) =>
-            setNewUser({ ...newUser, password: target.value })
-          }
-        />
+        <div class="form-group">
+          <label>Password:</label>
+          <input
+            class="form-control"
+            required
+            type="password"
+            value={newUser.password}
+            onChange={({ target }) =>
+              setNewUser({ ...newUser, password: target.value })
+            }
+          />
+        </div>
         <br />
-        <label>Confirm Password:</label>
-        <input
-          required
-          type="password"
-          value={newUser.password_confirmation}
-          onChange={({ target }) =>
-            setNewUser({ ...newUser, password_confirmation: target.value })
-          }
-        />
+        <div class="form-group">
+          <label>Confirm Password:</label>
+          <input
+            class="form-control"
+            required
+            type="password"
+            value={newUser.password_confirmation}
+            onChange={({ target }) =>
+              setNewUser({ ...newUser, password_confirmation: target.value })
+            }
+          />
+        </div>
         <br />
         <label>I accept terms and conditions</label>
         <input
@@ -59,7 +74,8 @@ export default function RegisterForm({
           type="checkbox"
         />
         <br />
-        <button type="submit">Register</button>
+        <hr/>
+        <button type="submit" class="btn btn-primary">Register</button>
       </form>
     </div>
   );

@@ -14,7 +14,7 @@ export default function AppLogin(){
         e.preventDefault();
         await login(newUser);
         alert('You are logged in successful');
-        history.push('/');
+        history.push('/galleries');
       };
 
     return <LoginForm

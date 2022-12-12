@@ -6,7 +6,7 @@ class GalleriesService {
     }
 
     async getAll() {
-        const response = await this.axiosInstance.get('/');
+        const response = await this.axiosInstance.get('/galleries');
         return response.data;
     }
 

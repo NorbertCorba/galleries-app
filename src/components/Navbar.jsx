@@ -1,9 +1,10 @@
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Navbar() {
-    const history = useHistory();
+
     const { logout } = useAuth();
     const handleLogout = async () => {
         await logout();
@@ -15,34 +16,42 @@ export default function Navbar() {
     return (
         <div>
             <h2>GALLERIES APP</h2>
-            <ul>
-                {user ? (
-                    <>
-                        <button onClick={handleLogout}>Logout</button>
-                        <h1>Wellcome, {user && user.first_name + ' ' + user.last_name}</h1>
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 
-                        <li>
-                            <Link to="/">All Galleries</Link>
-                        </li>
+                <ul class="navbar-nav">
+                    {user ? (
+                        <>
+                            <li class="nav-item active">
+                                <Link class="nav-link" to="/">All Galleries</Link>
+                            </li>
+                            <li class="nav-item active">
+                                <Link class="nav-link" to="/my-galleries">My Galleries</Link>
+                            </li>
+                            <li class="nav-item active">
+                                <Link class="nav-link" to="/create">Create New Gallery</Link>
+                            </li>
+                            <div>
+                                <h4 class="">Wellcome, {user && user.first_name + ' ' + user.last_name}</h4>
+                            </div>
+                            <button class="btn btn-primary" onClick={handleLogout}>Logout</button>
 
-                        <li>
-                            <Link to="/my-galleries">My Galleries</Link>
-                        </li>
-                        <li>
-                            <Link to="/create">Create New Gallery</Link>
-                        </li>
-                    </>
-                ) : (
-                    <>
-                        <li>
-                            <Link to="/">All Galleries</Link>
-                        </li>
+                        </>
+                    ) : (
+                        <>
+                            <li class="nav-item active">
+                                <Link to="/" class="nav-link">All Galleries</Link>
+                            </li>
+                            <li class="nav-item active">
+                                <Link to="/login" class="nav-link">Login</Link>
+                            </li>
+                            <li class="nav-item active">
 
-                        <Link to="/login">Login</Link>
-                        <Link to="/register">Register</Link>
-                    </>
-                )}
-            </ul>
+                                <Link to="/register" class="nav-link">Register</Link>
+                            </li>
+                        </>
+                    )}
+                </ul>
+            </nav>
         </div>
     );
 }

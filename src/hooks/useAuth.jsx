@@ -17,7 +17,7 @@ export function AuthProvider({ children }) {
   const handleLogout = async () => {
     await authService.logout();
     alert("You have logged out.");
-    history.push("/");
+    history.push("/galleries");
   };
 
   const handleRegister = async (e, newUser) => {

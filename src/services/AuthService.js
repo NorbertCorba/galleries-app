@@ -19,8 +19,6 @@ class AuthService {
   async register(data) {
     let response = await httpService.axiosInstance.post("/register", data);
     if (response.data) {
-      localStorage.removeItem("token");
-      console.log(response);
       localStorage.setItem("token", response.data.authorization.token);
       this.setAxiosAuthorizationHeader(response.data.authorization.token);
       return response;

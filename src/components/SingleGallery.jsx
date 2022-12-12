@@ -3,7 +3,7 @@ import React from "react";
 export default function SingleGallery({
   id,
   title,
-  description,
+  description
 
 }) {
   return (

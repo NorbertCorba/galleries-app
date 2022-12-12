@@ -18,7 +18,7 @@ export default function Register() {
         const response = await authService.register(newUser);
         if (response) {
             alert('Registration successful.');
-            history.push("/");
+            history.push("/galleries");
         }
     };
 

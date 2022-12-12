@@ -4,11 +4,13 @@ import AppLogin from "./pages/AppLogin";
 import AppRegister from "./pages/AppRegister";
 import useAuth from "./hooks/useAuth"
 import AppGalleries from "./pages/AppGalleries";
+import AppSingleGallery from "./pages/AppSingleGallery";
+import AddGallery from "./pages/AddGallery";
 
 const AuthRoute = ({ children, ...rest }) => {
   const { user } = useAuth();
 
-  return <Route {...rest}>{user ? children : <Redirect to="/login" />}</Route>;
+  return <Route {...rest}>{user ? children : <Redirect to="/" />}</Route>;
 };
 
 const GuestRoute = ({ children, ...rest }) => {
@@ -26,9 +28,18 @@ export default function Router() {
       <GuestRoute path="/register">
         <AppRegister />
       </GuestRoute>
-      <AuthRoute exact path="/">
-        <AppGalleries />
+      <AuthRoute path="/galleries/:id">
+        <AppSingleGallery />
       </AuthRoute>
+      <AuthRoute path="/create">
+        <AddGallery />
+      </AuthRoute>
+      <Route path='/' exact>
+        <Redirect to='/galleries'></Redirect>
+      </Route>
+      <Route path='/galleries' exact>
+        <AppGalleries />
+      </Route>
     </Switch>
   );
 }
