@@ -4,7 +4,12 @@ import { useParams } from "react-router-dom";
 import GalleriesService from "../services/GalleriesService";
 
 export default function AppSingleGallery() {
-    const [singleGallery, setSingleGallery] = useState();
+    const [singleGallery, setSingleGallery] = useState({
+        id: "",
+        title: "",
+        description: "",
+
+    });
     const { id } = useParams();
 
     useEffect(() => {
@@ -13,20 +18,17 @@ export default function AppSingleGallery() {
 
     const handleGetSingleGallery = async () => {
         const response = await GalleriesService.get(id);
-        if (response.status === 200) {
-            setSingleGallery(response.data);
-            console.log(response)
-        }
+        setSingleGallery(response);
     };
 
     return (
         <div>
             <SingleGallery
+                id={singleGallery.id}
                 key={singleGallery.id}
                 title={singleGallery.title}
                 description={singleGallery.description}
             />
-
         </div>
     );
 }

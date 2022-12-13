@@ -17,10 +17,9 @@ class GalleriesService {
 
     async get(id) {
         const response = await this.axiosInstance.get(`/galleries/${id}`);
-        return response;
+        return response.data;
 
     }
 }
-
 
 export default new GalleriesService();

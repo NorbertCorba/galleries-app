@@ -9,10 +9,10 @@ export default function RegisterForm({
   return (
     <div>
       <form onSubmit={handleOnRegister}>
-        <div class="form-group">
+        <div className="form-group">
           <label>First Name:</label>
           <input
-            class="form-control"
+            className="form-control"
             required
             type="text"
             value={newUser.first_name}
@@ -20,10 +20,10 @@ export default function RegisterForm({
           />
         </div>
         <br />
-        <div class="form-group">
+        <div className="form-group">
           <label>Last Name:</label>
           <input
-            class="form-control"
+            className="form-control"
             required
             type="text"
             value={newUser.last_name}
@@ -31,10 +31,10 @@ export default function RegisterForm({
           />
         </div>
         <br />
-        <div class="form-group">
+        <div className="form-group">
           <label>Email:</label>
           <input
-            class="form-control"
+            className="form-control"
             required
             type="email"
             value={newUser.email}
@@ -42,10 +42,10 @@ export default function RegisterForm({
           />
         </div>
         <br />
-        <div class="form-group">
+        <div className="form-group">
           <label>Password:</label>
           <input
-            class="form-control"
+            className="form-control"
             required
             type="password"
             value={newUser.password}
@@ -55,10 +55,10 @@ export default function RegisterForm({
           />
         </div>
         <br />
-        <div class="form-group">
+        <div className="form-group">
           <label>Confirm Password:</label>
           <input
-            class="form-control"
+            className="form-control"
             required
             type="password"
             value={newUser.password_confirmation}
@@ -74,8 +74,8 @@ export default function RegisterForm({
           type="checkbox"
         />
         <br />
-        <hr/>
-        <button type="submit" class="btn btn-primary">Register</button>
+        <hr />
+        <button type="submit" className="btn btn-primary">Register</button>
       </form>
     </div>
   );

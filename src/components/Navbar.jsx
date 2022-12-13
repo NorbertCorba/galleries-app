@@ -10,43 +10,42 @@ export default function Navbar() {
         await logout();
 
     };
-
     const { user } = useAuth();
 
     return (
         <div>
             <h2>GALLERIES APP</h2>
-            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <nav className="navbar navbar-expand-sm bg-primary navbar-dark">
 
-                <ul class="navbar-nav">
+                <ul className="navbar-nav">
                     {user ? (
                         <>
-                            <li class="nav-item active">
-                                <Link class="nav-link" to="/">All Galleries</Link>
+                            <li className="nav-item active">
+                                <Link className="nav-link" to="/">All Galleries</Link>
                             </li>
-                            <li class="nav-item active">
-                                <Link class="nav-link" to="/my-galleries">My Galleries</Link>
+                            <li className="nav-item active">
+                                <Link className="nav-link" to="/my-galleries">My Galleries</Link>
                             </li>
-                            <li class="nav-item active">
-                                <Link class="nav-link" to="/create">Create New Gallery</Link>
+                            <li className="nav-item active">
+                                <Link className="nav-link" to="/create">Create New Gallery</Link>
                             </li>
                             <div>
-                                <h4 class="">Wellcome, {user && user.first_name + ' ' + user.last_name}</h4>
+                                <h4 className="">Wellcome, {user && user.first_name + ' ' + user.last_name}</h4>
                             </div>
-                            <button class="btn btn-primary" onClick={handleLogout}>Logout</button>
+                            <button className="btn btn-primary" onClick={handleLogout}>Logout</button>
 
                         </>
                     ) : (
                         <>
-                            <li class="nav-item active">
-                                <Link to="/" class="nav-link">All Galleries</Link>
+                            <li className="nav-item active">
+                                <Link to="/" className="nav-link">All Galleries</Link>
                             </li>
-                            <li class="nav-item active">
-                                <Link to="/login" class="nav-link">Login</Link>
+                            <li className="nav-item active">
+                                <Link to="/login" className="nav-link">Login</Link>
                             </li>
-                            <li class="nav-item active">
+                            <li className="nav-item active">
 
-                                <Link to="/register" class="nav-link">Register</Link>
+                                <Link to="/register" className="nav-link">Register</Link>
                             </li>
                         </>
                     )}

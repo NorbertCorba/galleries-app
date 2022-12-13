@@ -22,22 +22,22 @@ const GuestRoute = ({ children, ...rest }) => {
 export default function Router() {
   return (
     <Switch>
-      <GuestRoute exact path="/login">
+      <GuestRoute path="/login" >
         <AppLogin />
       </GuestRoute>
-      <GuestRoute path="/register">
+      <GuestRoute path="/register" >
         <AppRegister />
       </GuestRoute>
-      <AuthRoute path="/galleries/:id">
+      <Route  path="/galleries/:id">
         <AppSingleGallery />
-      </AuthRoute>
-      <AuthRoute path="/create">
+      </Route>
+      <AuthRoute path="/create" exact>
         <AddGallery />
       </AuthRoute>
-      <Route path='/' exact>
+      <Route exact path='/' >
         <Redirect to='/galleries'></Redirect>
       </Route>
-      <Route path='/galleries' exact>
+      <Route exact path='/galleries'>
         <AppGalleries />
       </Route>
     </Switch>
